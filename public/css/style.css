@@ -1,0 +1,29 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(239, 168, 203);
+}
+
+h1, h2 {
+    font-weight: 600; /* Apply a heavier weight to headings */
+}
+
+p {
+    font-weight: 400; /* Regular weight for paragraph text */
+}
+
+.btn-danger {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #dc3545; /* Red background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicShare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ebd8f4;
+        }
+        h1, h2 {
+            font-weight: 600; /* Apply a heavier weight to headings */
+        }
+        p {
+            font-weight: 400; /* Regular weight for paragraph text */
+        }
+        .btn-danger {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to PicShare!</h1>
+    <a href="/upload">Upload a Photo</a>
+    <div id="loading" style="display: none;">Loading...</div>
+    <div class="gallery">
+        <% photos.forEach(photo => { %>
+            <div class="photo">
+                <img src="<%= photo.imagePath %>" 
+                     srcset="<%= photo.imagePath %> 1x, <%= photo.imagePath %>?w=600 2x" 
+                     alt="<%= photo.title %>"
+                     style="width: 200px; height: 200px; object-fit: cover;">
+                <h2><%= photo.title %></h2>
+                <p><%= photo.description %></p>
+                
+                <form action="/delete/<%= photo._id %>" method="POST">
+                    <button type="submit" class="btn btn-danger" aria-label="Delete Photo">Delete</button>
+                   <style>
+
+                   .btn-danger {
+                        background-color: #dc3545; /* Red background */
+                        color: #fff; /* White text */
+                        border: none;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 14px;
+                        text-align: center;
+                        display: inline-block;
+                        transition: background-color 0.3s ease;
+                    }
+            
+                    .btn-danger:hover {
+                        background-color: #c82333; /* Darker red on hover */
+                    }
+                </style>
+                </form>
+
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
